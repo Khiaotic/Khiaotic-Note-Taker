@@ -8,6 +8,7 @@ This application is covered by the MIT
 Preview image: 
 
 Link to Demo: 
+![page1](https://user-images.githubusercontent.com/112679225/205211280-e744cbf6-1067-4713-8708-1745421ac4cb.jpg)
 
 User Story
 AS A developer I WANT a note taker SO THAT I can quickly create notes for a new project
