@@ -25,8 +25,8 @@ AS A developer I WANT a note taker SO THAT I can quickly create notes for a new 
 To clone and use this application, you'll need Git and Node.js (npm equipped) installed on your computer
 npm i -y
 npm install express
-npm init
 npm uniqueid 
+npm init
 
 🧰Usage
 index.html
