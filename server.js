@@ -2,7 +2,7 @@
 const fs = require("fs");
 const express = require('express');
 // const util =  require('util');
-const  fs = require ('fs');
+
 const path = require('path');
 
 //asynchronous processes
@@ -18,22 +18,24 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 //middleware
 app.use(express.urlencoded({extended: true}));
-//Static  middleware //request to server =>start searchin pub folder
+//Static  middleware //request to server =>start searching pub folder
 app.use(express.static("public"));
 
 //ROUTE to/for HOMEPAGE move to routes js
+app.get("/api/notes", (req, res) =>  {
+    console.log('get notes request')
+    res.json(note);
+});
+
 app.get("/notes",  (req, res) => {
 res.sendFile(path.join(_dirname,  '/public/notes.html'))
 });
 
-app.get("/", (req, res)  =>
+app.get("/", (req, res)  => {
 res.sendFile(path.join(_dirname, '/public/index.html'))
-);
-
-app.get("/api/notes", (req, res) =>  {
-    res.json(notes);
 });
- 
+
+
 app.get("*",  (req, res) => {
     res.sendFile(path.join(_dirname, "/public/index.html"))
 });
@@ -42,7 +44,7 @@ app.get("*",  (req, res) => {
 
 
 
-/// DELETE  NOTES and output new array of ones you dont delete
+/// DELETE  NOTES and output new array of ones you don't delete
 
 
 //keep here for order? LISTENING
