@@ -24,7 +24,7 @@ app.use(express.static("public"));
 //ROUTE to/for HOMEPAGE move to routes js
 app.get("/api/notes", (req, res) =>  {
     console.log('get notes request')
-    res.json(note);
+    res.json(notes);
 });
 
 app.get("/notes",  (req, res) => {
@@ -40,7 +40,8 @@ app.get("*",  (req, res) => {
     res.sendFile(path.join(_dirname, "/public/index.html"))
 });
 
-
+// post notes with unique id
+// npm i uniqid
 
 
 

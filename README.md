@@ -26,6 +26,7 @@ To clone and use this application, you'll need Git and Node.js (npm equipped) in
 npm i -y
 npm install express
 npm init
+npm uniqueid 
 
 🧰Usage
 index.html
