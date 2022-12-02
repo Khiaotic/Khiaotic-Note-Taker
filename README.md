@@ -1,6 +1,6 @@
 A Khiaotic Note Taker!
 ✨Overview (description)✨
-This project creates and updates a reusable ReadMe file (under README.mb) using node.js
+This project creates and updates a reusable note taking application usinf express.js
 License
 This application is covered by the MIT
 
