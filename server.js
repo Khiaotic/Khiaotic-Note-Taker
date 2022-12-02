@@ -11,7 +11,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-//f(x) to create a new note for client
+//f(x) to create a new note from client
 // function inputNote(body,)
 
 //computer to understand json//json send responses
@@ -30,32 +30,15 @@ app.get("/", (req, res)  =>
 res.sendFile(path.join(_dirname, '/public/index.html'))
 );
 
-// app.get("/api/notes", (req, res) =>  {
-//     res.json(notes);
-// });
+app.get("/api/notes", (req, res) =>  {
+    res.json(notes);
+});
  
 app.get("*",  (req, res) => {
     res.sendFile(path.join(_dirname, "/public/index.html"))
 });
 
-//does this have to go first/on top?
-// app.get("/api/notes", (req, res) => {
-// readFileAsync('./db/db.json', "utf8").then(function(data){
-//     notes = [].concat(JSON.parse(data))
-//     res.json(notes);
-// })
-// });
 
-//Route  to Post
-// app.post("/api/notes", (req, res) {
-//     const note =  req.body;
-//     readFileAsync("./db/db.json","utf8").then(function(data){
-//         const notes =[].concat(JSON.parse(data));
-//         note.id = notes.length+ 1
-//         notes.push(note);
-//         return notes
-//     });
-// })
 
 
 
