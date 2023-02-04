@@ -18,6 +18,11 @@ app.use(express.urlencoded({extended: true}));
 //Static  middleware //request to server =>start searching pub folder
 app.use(express.static("public"));
 
+// post notes with unique id
+const uniqueId = require ("generate-unique-id");
+
+
+
 //f(x) to create a new note from client
 function InputNote (body, notesArray) {
     const note = body;
@@ -30,16 +35,11 @@ function InputNote (body, notesArray) {
 
 
 
-app.post("api/notes", (req, res) => {
-    req.body.id = generateUniqueId();
-    const note =  InputNote(req.body,notes);
-    res.json(notes);
-})
 
 
 //ROUTE to/for HOMEPAGE move to routes js
 app.get("/", (req, res)  => {
-res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 });
 app.get("/api/notes", (req, res) =>  {
     console.log('get notes request')
@@ -47,7 +47,7 @@ app.get("/api/notes", (req, res) =>  {
 });
 
 app.get("/notes",  (req, res) => {
-res.sendFile(path.join(__dirname,  '/public/notes.html'))
+    res.sendFile(path.join(__dirname,  '/public/notes.html'))
 });
 
 
@@ -56,9 +56,12 @@ app.get("*",  (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
-// post notes with unique id
-const uniqueId = require ("generate-unique-id");
-const generateUniqueId = require("generate-unique-id");
+app.post("api/notes", (req, res) => {
+    req.body.id = uniqueId();
+    const note =  InputNote(req.body,notes);
+    res.json(note);
+});
+
 
 
 
