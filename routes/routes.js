@@ -1,10 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-const router = express.Router();
 const express = require("express");
+const router = express.Router();
 
 const { v4: uuid4 } = require("uuid");
-
 
 // const trackNote = require("../db/db.json");
 
@@ -17,12 +16,14 @@ router.get("/api/notes", (req, res) => {
 });
 
 router.delete("/api/notes/:id", (req, res) => {
-  return fs.readFile(path.join(__dirname, "../db/db.json"), (err, data) => {
+  return fs.readFile(path.join(__dirname, "../db/db.json"),
+  "utf8",
+   (err, data) => {
     console.log("sike..not deleted", data);
     if (err) throw err;
     const notesArray = JSON.parse(data);
     const deleteNote = notesArray.filter(
-      (eraseNote) => eraseNotes.id !== req.params.id
+      (eraseNote) => eraseNote.id !== req.params.id
     );
     fs.writeFileSync(
       path.join(__dirname, "../db/db.json"),
@@ -33,9 +34,9 @@ router.delete("/api/notes/:id", (req, res) => {
 });
 
 router.post("/api/notes", (req, res) => {
-    const notes = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "../db/db.json"))
-    );
+  const notes = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../db/db.json"))
+  );
   const inputNote = req.body;
   inputNote.id = uuid4();
   notes.push(inputNote);
@@ -43,13 +44,19 @@ router.post("/api/notes", (req, res) => {
     path.join(__dirname, "../db/db.json"),
     JSON.stringify(notes)
   );
-  res.send("new note input")
+  res.send("new note input");
 });
 
+router.get("/notes",  (req, res) => {
+    res.sendFile(path.join(__dirname,  '/public/notes.html'))
+});
+
+router.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
 
 router.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
-
-module.exports = router; 
+module.exports = router;
