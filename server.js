@@ -41,12 +41,28 @@ app.get("*",  (req, res) => {
 });
 
 // post notes with unique id
-// npm i uniqid j
+const uniqueId = require ("generate-unique-id");
+
+function createNote (body, notesArray) {
+    const note = body;
+    notes.array.push(note);
+    fs.writeFileSync( path.join(__dirname, "./db/db.json"),
+    JSON.stringify({notes: notesArray}, null, 2)
+    );
+    return note;
+} 
+console.log(notes)
 
 
 
 /// DELETE  NOTES and output new array of ones you don't delete
-
+app.delete('/api/notes/:id', (req, res) => {
+    const {id} = req.params;
+    const deleteNote = notes.findIndex(note => note.id ==id);
+notes.splice(deleteNote,1)
+;
+return res.send();
+});
 
 //keep here for order? LISTENING
 app.listen(PORT, () => {
