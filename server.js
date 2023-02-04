@@ -5,14 +5,28 @@ const express = require('express');
 
 const path = require('path');
 
-//asynchronous processes
-// const readFileAsync = util.promisify(fs.readFile);
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 //f(x) to create a new note from client
-// function inputNote(body,)
+function InputNote (body, notesArray) {
+    const note = body;
+    notes.array.push(note);
+    fs.writeFileSync( path.join(__dirname, "./db/db.json"),
+    JSON.stringify({notes: notesArray}, null, 2)
+    );
+    return note;
+} 
+console.log(notes)
+
+
+app.post("api/notes", (req, res) => {
+    req.body.id = generateUniqueId();
+    const note =  InputNote(req.body,notes);
+    res.json(notes);
+})
 
 //computer to understand json//json send responses
 app.use(express.json());
@@ -42,16 +56,7 @@ app.get("*",  (req, res) => {
 
 // post notes with unique id
 const uniqueId = require ("generate-unique-id");
-
-function createNote (body, notesArray) {
-    const note = body;
-    notes.array.push(note);
-    fs.writeFileSync( path.join(__dirname, "./db/db.json"),
-    JSON.stringify({notes: notesArray}, null, 2)
-    );
-    return note;
-} 
-console.log(notes)
+const generateUniqueId = require("generate-unique-id");
 
 
 
