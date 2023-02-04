@@ -1,54 +1,58 @@
-A Khiaotic Note Taker!
-✨Overview (description)✨
-This project creates and updates a reusable note taking application usinf express.js
-License
+## A Khiaotic Note Taker!
+## ✨Overview (description)✨ <br>
+This project creates and updates a reusable note taking application using express.js
+# 🪪License
 This application is covered by the MIT
 
 👀Preview and Demo
 Preview image: 
-
-Link to Demo: 
 ![page1](https://user-images.githubusercontent.com/112679225/205211280-e744cbf6-1067-4713-8708-1745421ac4cb.jpg)
-![Screenshot 2022-12-01 225743](https://user-images.githubusercontent.com/112679225/205211744-8b9ad94e-87f0-4930-8e90-8d98502bbae1.jpg)
 
+
+Link to Demo: <br>
 heroku link: https://morning-tor-98358.herokuapp.com/
 
 
-User Story
+
+
+
+
+## User Story
 AS A developer I WANT a note taker SO THAT I can quickly create notes for a new project
 
-📋Table of Contents
--License
--Description
--Installation
--Usage
--Contributors
--Tests
--Questions
+## 📋Table of Contents
+-[License](#🪪License) <br />
+-[Description](#✨Overview) <br />
+-[Installation](#💢📃Installation) <br />
+-[Usage](#🧰Usage) <br />
+-[Contribute](#🏠Contributors) <br />
+-[Tests](#🧪Tests) <br />
+-[Questions](#🤔Questions) <br />
+-[Support](#🪙Support) <br />
 
-💢📃Installation
+# 💢📃Installation <br>
 To clone and use this application, you'll need Git and Node.js (npm equipped) installed on your computer
 npm i -y
 npm install express
 npm uniqueid 
 npm init
 
-🧰Usage
-index.html
+# 🧰Usage<br>
+node server.js
 
 
-🏠Contributors
+# 🏠Contributors<br>
 Feel free to submit updates for review and acceptance
 
-🧪Tests
+# 🧪Tests<br>
 Are tests included in this application?: N/A
 
-🤔Questions
+# 🤔Questions<br>
 Find me on Github: khiaotic
 
 If you have any questions or concerns please contact me through email: dummyemailtemplate@gmail.com or GitHub
 
-🪙 Support
+# 🪙 Support<br>
 This is FREE, OPEN-SOURCE software.
 If you'd like to support the development of future projects or "say thanks," you can donate BTC at: N/A.
 
