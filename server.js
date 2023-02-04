@@ -61,7 +61,7 @@ app.post("api/notes", (req, res) => {
     const note =  InputNote(req.body,notes);
     res.json(note);
 });
-
+console.log(note)
 
 
 
