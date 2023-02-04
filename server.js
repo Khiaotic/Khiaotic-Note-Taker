@@ -19,7 +19,7 @@ function InputNote (body, notesArray) {
     );
     return note;
 } 
-console.log(notes)
+// console.log(notes)
 
 
 app.post("api/notes", (req, res) => {
