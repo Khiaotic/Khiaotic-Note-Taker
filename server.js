@@ -6,9 +6,17 @@ const express = require('express');
 const path = require('path');
 
 
-
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+const {notes} = require("./db/db.json")
+
+//computer to understand json//json send responses
+app.use(express.json());
+//middleware
+app.use(express.urlencoded({extended: true}));
+//Static  middleware //request to server =>start searching pub folder
+app.use(express.static("public"));
 
 //f(x) to create a new note from client
 function InputNote (body, notesArray) {
@@ -19,7 +27,7 @@ function InputNote (body, notesArray) {
     );
     return note;
 } 
-// console.log(notes)
+
 
 
 app.post("api/notes", (req, res) => {
@@ -28,12 +36,6 @@ app.post("api/notes", (req, res) => {
     res.json(notes);
 })
 
-//computer to understand json//json send responses
-app.use(express.json());
-//middleware
-app.use(express.urlencoded({extended: true}));
-//Static  middleware //request to server =>start searching pub folder
-app.use(express.static("public"));
 
 //ROUTE to/for HOMEPAGE move to routes js
 app.get("/", (req, res)  => {
